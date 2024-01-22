@@ -1,0 +1,32 @@
+body {
+    /* border: 5px solid red; */
+}
+
+.main-container {
+    border: 2px solid blue;
+    height: 70vh;
+}
+
+.first-row, .second-row, .third-row {
+    height: 30%;
+    margin: 3px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.first-row, .second-row {
+    border-bottom: 2px solid black;
+}
+
+.\32, .\35, .\38  {
+    padding: 0 15px 0 15px;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+
+}
+
+.box { 
+    height: 90%;
+    width: 25%;
+    /* border: 2px solid red; */
+}

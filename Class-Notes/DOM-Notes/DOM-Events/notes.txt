@@ -1,0 +1,15 @@
+Topics: DOM Manipulation, DOM Events, Event Handlers, HTML Forms, Handling User Input
+
+Task: Create a To Do List
+    - User Story
+        - As a User, I want to type into a text box my todo
+        - As a User, I want to click on the 'Add' button and add the to do that I typed from the text box onto my todo list
+    
+    - Write HTML Elements
+        - Title
+        - List
+        - Form with an Input Element
+        - Button 
+        - Checkbox (Additional Feature)
+
+    
