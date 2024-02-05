@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./script.js"></script>
+    <title>JQuery Notes</title>
+  </head>
+  <body>
+    <h1>JQuery Notes</h1>
+    Flight Booking Reservation
+    <form>
+      <label>First Name</label>
+      <input
+        type="text"
+        name="firstName"
+        id="first-name"
+        autocomplete="off"
+      /><br />
+      <label>Last Name</label>
+      <input
+        type="text"
+        name="lastName"
+        autocomplete="off"
+        id="last-name"
+      /><br />
+      <label>Address</label>
+      <input type="text" autocomplete="off" name="address" id="address" /><br />
+      <label>From:</label>
+      <input type="text" name="from" autocomplete="off" id="from" /><br />
+      <label>To:</label>
+      <input type="text" autocomplete="off" name="to" id="to" /><br />
+      <label>Departure Date</label>
+      <input
+        type="date"
+        name="departureDate"
+        autocomplete="off"
+        id="departure-date"
+      /><br />
+      <label>Passport Number</label>
+      <input
+        type="number"
+        name="passportNum"
+        autocomplete="off"
+        id="passport-num"
+      />
+      <input type="submit" id="submit-btn" value="Book Flight" />
+    </form>
+  </body>
+</html>
