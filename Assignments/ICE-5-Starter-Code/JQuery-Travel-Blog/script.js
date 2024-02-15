@@ -84,4 +84,4 @@ $(document).ready(function () {
 // 2. Add 3 images to the Cities & Deserts (Optionally, you may add images for the rest of the categories)
 // 3. Dynamically add content to the Footer using jQuery. The content should include a short description of your favorite category/place and why.
 
-// DUE Friday February 16th at 11:59 PM
+// DUE Monday February 19th at 11:59 PM
