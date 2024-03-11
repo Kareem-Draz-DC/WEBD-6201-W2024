@@ -73,23 +73,23 @@ console.log("Script is running!");
 // document.getElementById("loadPokemon").addEventListener("click", function () {
 //   // Fetch the list of pokemons
 //   // Using FETCH and .THEN
-//   let pokemonList = fetch(
-//     "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0",
-//     {
-//       method: "GET",
-//     }
-//   )
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .then((jsonResult) => {
-//       // The scope of the jsonResult variable is limited to only this .then callback function
-//       console.log(jsonResult);
-//       var pokemonString = "";
-//       // Display list of pokemons in HTML
-//       jsonResult.results.forEach((pokemon) => {
-//         pokemonString += `<li><a href=${pokemon.url}>${pokemon.name}</a></li>`;
-//       });
+// let pokemonList = fetch(
+//   "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0",
+//   {
+//     method: "GET",
+//   }
+// )
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((jsonResult) => {
+//     // The scope of the jsonResult variable is limited to only this .then callback function
+//     console.log(jsonResult);
+//     var pokemonString = "";
+//     // Display list of pokemons in HTML
+//     jsonResult.results.forEach((pokemon) => {
+//       pokemonString += `<li><a href=${pokemon.url}>${pokemon.name}</a></li>`;
+//     });
 //       document.getElementById("pokemonList").innerHTML = pokemonString;
 //       return jsonResult;
 //     })
@@ -100,31 +100,47 @@ console.log("Script is running!");
 // });
 
 // USING FETCH & ASYNC AWAIT
-document
-  .getElementById("loadPokemon")
-  .addEventListener("click", async function () {
-    // Fetch the list of pokemons
-    try {
-      let pokemonList = await fetch(
-        // URL: for ICE -> Store user input in variable called pokemonName
-        // `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+// document
+//   .getElementById("loadPokemon")
+//   .addEventListener("click", async function () {
+//     // Fetch the list of pokemons
+//     try {
+//       let pokemonList = await fetch(
+//         // URL: for ICE -> Store user input in variable called pokemonName
+//         // `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
 
-        "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
-      ); // By Default, it sends a GET HTTP Request
-      var pokemonString = "";
-      // debugger;
-      var jsonResults = await pokemonList.json();
-      jsonResults.results.forEach((pokemon) => {
-        pokemonString += `<li><a href=${pokemon.url}>${pokemon.name}</a></li>`;
-      });
-      document.getElementById("pokemonList").innerHTML = pokemonString;
-    } catch (err) {
-      console.log(err);
-    }
-  });
+//         "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+//       ); // By Default, it sends a GET HTTP Request
+//       var pokemonString = "";
+//       // debugger;
+//       var jsonResults = await pokemonList.json();
+//       jsonResults.results.forEach((pokemon) => {
+//         pokemonString += `<li><a href=${pokemon.url}>${pokemon.name}</a></li>`;
+//       });
+//       document.getElementById("pokemonList").innerHTML = pokemonString;
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   });
 
 // ICE 6: DUE Monday @ 11:59 PM
 // 1. Create a form where the user will be able to type in the name of a pokemon
+
+let userInput = document.getElementById("user-input");
 // 2. After the user submits the form, send an API GET Request to the pokeapi searching for the details of the pokemon name the user submitted from the form.
+
+document.getElementById("searchPokemon").addEventListener("click", async () => {
+  console.log(userInput.value);
+  let pokemonName = userInput.value;
+  // `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+
+  let pokemonDetails = await fetch(
+    `https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`
+  );
+  let pokemon = await pokemonDetails.json();
+  console.log(pokemon);
+});
+
 // 3. If the api returns the pokemon details successfully, then display the details of the pokemon in the HTML (i.e. update the body of the HTML to have the pokemon)
+
 //4 If  the api returns an error that it can't find the pokemon, display the error to the user and ask them to type a different pokemon name
