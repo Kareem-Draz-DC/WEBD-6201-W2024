@@ -1,3 +1,6 @@
+// We want to import our Pokemon model so that we can communicate with the database
+const Pokemon = require("../models/Pokemon");
+
 function greetPokemon(req, res) {
   // Sample Data logic
   // Fetch pokemon from database
@@ -31,8 +34,33 @@ async function searchPokemon(req, res) {
   res.render("displayPokemon.ejs", { pokemon: pokemonDetails });
 }
 
+async function savePokemonToCollection(req, res) {
+  // Grab the form data
+  const formData = req.body;
+  // Create a new pokemon in our database
+  try {
+    await Pokemon.create({
+      pokemonId: formData.pokemonId,
+      name: formData.pokemonName,
+      height: formData.pokemonHeight,
+      photo: formData.pokemonPhoto,
+    });
+  } catch (err) {
+    console.log(`Error in creating pokemon ${formData.pokemonName}`);
+  }
+  res.redirect("/"); // redirect user back to slash route upon completion
+}
+
+// DUE Monday April 8th @ 11:59 PM
+// ICE 8: Implement the Read all pokemons from saved collection story:
+// 1. Router - GET /pokemonList
+// 2. Controller - getAllPokemons(req, res)
+// 3. EJS - displayMyCollection.ejs
+// As for the button to view your collection, you can add it in the homePage.ejs (for extra points put it in a navbar using EJS partials)
+
 module.exports = {
   greetPokemon,
   displayHomePage,
   searchPokemon,
+  savePokemonToCollection,
 };

@@ -10,7 +10,12 @@ A user story is an informal, general explanation of a software feature written f
    1. Router - POST /search
    1. Controller - searchPokemon(req, res)
    1. EJS View - displayPokemon
-2. As a User, I want to be able to Save a pokemon to my Saved Collection.
+2. As a User, I want to be able to Save a pokemon to my Saved Collection (Database).
+   1. Create a Configuration file to establish a connection to our database (and run it in index.js)
+   2. Define a Pokemon Model/Schema to structure the pokemon data that will be saved to our DB
+   3. Create form (behaves like a button) in displayPokemon.ejs that says "Add Pokemon To My Collection"
+   4. Router - POST /savePokemon
+   5. Controller - savePokemonToCollection(req, res)
 3. As a User, I want to be able to Create my own Pokemons in my Saved Collection
 4. As a User, I want to be able to Update a
    Pokemon in my Saved Collection.
