@@ -16,11 +16,18 @@ A user story is an informal, general explanation of a software feature written f
    3. Create form (behaves like a button) in displayPokemon.ejs that says "Add Pokemon To My Collection"
    4. Router - POST /savePokemon
    5. Controller - savePokemonToCollection(req, res)
-3. As a User, I want to be able to Create my own Pokemons in my Saved Collection
-4. As a User, I want to be able to Update a
-   Pokemon in my Saved Collection.
-5. As a User, I want to be able to Read the Pokemons from my Saved Collection.
-6. As a User, I want to be able to Delete a Pokemon from my Saved Collection.
+3. As a User, I want to be able to Read the Pokemons from my Saved Collection.
+   1. Button to navigate to MySavedCollection.ejs
+   2. Router - GET /savedCollection
+   3. Controller - getMyCollection(req,res)
+   4. EJS View - MySavedCollection.ejs
+4. As a User, I want to be able to Delete a Pokemon from my Saved Collection.
+   1. Button to delete pokemon from savedCollection
+   2. Router - POST (Delete) /deletePokemon/:id
+   3. Controller - deletePokemonById(req,res)
+   4. Redirect back to /savedCollection
+5. As a User, I want to be able to Update/Edit a Pokemon in my Saved Collection.
+6. As a User, I want to be able to Create my own Pokemons in my Saved Collection
 7. As a User, I want to be able to Sign up for a new account
 8. As a User, I want to be able to Log in to an existing account
 

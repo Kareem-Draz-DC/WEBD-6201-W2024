@@ -13,6 +13,10 @@ router.post("/search", pokemonController.searchPokemon);
 
 router.post("/savePokemon", pokemonController.savePokemonToCollection);
 
+router.get("/savedCollection", pokemonController.getMyCollection);
+
+router.post("/deletePokemon/:idOfPokemon", pokemonController.deletePokemonById);
+
 // Share the router with others
 // CommonJS Syntax
 module.exports = router;

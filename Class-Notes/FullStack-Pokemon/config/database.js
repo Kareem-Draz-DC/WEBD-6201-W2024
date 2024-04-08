@@ -5,9 +5,7 @@ const mongoose = require("mongoose");
 function connectToDatabase() {
   // Cloud Database
   mongoose
-    .connect(
-      "mongodb+srv://kareem:kareem@cluster0.arrhwng.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    )
+    .connect(process.env.MONGO_DB_URL)
     .then(() => console.log("Connected to mongoDB database!"))
     .catch((err) => console.log(err));
 }
