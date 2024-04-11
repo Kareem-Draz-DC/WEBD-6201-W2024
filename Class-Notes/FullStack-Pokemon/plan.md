@@ -29,7 +29,14 @@ A user story is an informal, general explanation of a software feature written f
 5. As a User, I want to be able to Update/Edit a Pokemon in my Saved Collection.
 6. As a User, I want to be able to Create my own Pokemons in my Saved Collection
 7. As a User, I want to be able to Sign up for a new account
+   1. EJS View - SignUpPage.ejs (update navbar)
+   2. Router - POST /signup
+   3. Controller - signUpUser(req, res) (redirect to Login Page)
 8. As a User, I want to be able to Log in to an existing account
+   1. EJS View - LoginPage.ejs
+   2. Router - POST /login
+   3. Controller - loginUser(req, res) (redirect to home page)
+   4. Add Necessary Middleware
 
 ## Requirements
 

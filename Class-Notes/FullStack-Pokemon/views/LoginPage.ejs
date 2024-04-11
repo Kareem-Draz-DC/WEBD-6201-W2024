@@ -1,0 +1,13 @@
+<%- include("partials/header.ejs")%>
+<form action="/login" method="POST" class="loginForm">
+
+    <label for="userName">UserName</label>
+    <input type="text" id="userName" name="userName" autocomplete="off" />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" autocomplete="off" />
+
+    <input type="submit" value="Login" />
+
+</form>
+<%- include("partials/footer.ejs")%>

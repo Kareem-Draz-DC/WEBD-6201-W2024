@@ -17,6 +17,14 @@ router.get("/savedCollection", pokemonController.getMyCollection);
 
 router.post("/deletePokemon/:idOfPokemon", pokemonController.deletePokemonById);
 
+router.get("/signUp", pokemonController.displaySignUpPage);
+
+router.post("/signUp", pokemonController.signUpUser);
+
+router.post("/login", pokemonController.loginUser);
+
+router.get("/login", pokemonController.displayLoginPage);
+
 // Share the router with others
 // CommonJS Syntax
 module.exports = router;

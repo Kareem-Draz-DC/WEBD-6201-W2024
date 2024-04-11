@@ -1,0 +1,22 @@
+<%- include("partials/header.ejs")%>
+<form action="/signUp" method="POST" class="signupForm">
+
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" autocomplete="off" />
+
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" autocomplete="off"/>
+
+    <label for="userName">UserName</label>
+    <input type="text" id="userName" name="userName" autocomplete="off" />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" autocomplete="off" />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" autocomplete="off" />
+
+    <input type="submit" value="Create New Account" />
+
+</form>
+<%- include("partials/footer.ejs")%>

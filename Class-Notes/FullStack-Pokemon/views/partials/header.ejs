@@ -9,7 +9,13 @@
 <body>
 <nav>
 <ul class="navbar">
+    <% if (user) { %>
+
+    <li>Welcome <%= user.firstName %></li>
     <li><a href="/">Home Page</a></li>
     <li><a href="/savedCollection">My Saved Collection</a></li>
+    <% } else { %>
+    <li><a href="/signUp">Sign Up</a></li>
+    <% } %>
 </ul>
 </nav>    

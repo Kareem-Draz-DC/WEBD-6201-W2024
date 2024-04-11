@@ -2,6 +2,7 @@ const express = require("express");
 const pokemonRouter = require("./routes/pokemon");
 const bodyParser = require("body-parser");
 const DBConfig = require("./config/database");
+let session = require("express-session");
 
 const app = express();
 
@@ -20,6 +21,26 @@ app.use(express.static("public"));
 // Middleware is similar to executing functions while the HTTP request is travelling to its final destination
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Create new session
+app.use(
+  session({
+    secret: "pokemon",
+    cookie: { myCookie: "123" },
+  })
+);
+
+// Custom Auth Middleware
+app.use(function (req, res, next) {
+  console.log("Custom Auth Middleware");
+  console.log(req.session);
+  if (res.locals.user) {
+    console.log("user is logged in!");
+  } else {
+    res.locals.user = req.session.user;
+  }
+  next();
+});
 
 // We are instructing our application to look into the routes folder and into the pokemon.js file inside that folder to manage any routes that begin with the path "/"
 app.use("/", pokemonRouter);

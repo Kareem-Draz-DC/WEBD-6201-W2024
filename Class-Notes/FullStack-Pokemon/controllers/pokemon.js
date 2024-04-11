@@ -1,5 +1,7 @@
 // We want to import our Pokemon model so that we can communicate with the database
 const Pokemon = require("../models/Pokemon");
+const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 function greetPokemon(req, res) {
   // Sample Data logic
@@ -30,7 +32,7 @@ async function searchPokemon(req, res) {
   );
 
   const pokemonDetails = await pokemonAPIResponse.json();
-  console.log(pokemonDetails);
+  // console.log(pokemonDetails);
   res.render("displayPokemon.ejs", { pokemon: pokemonDetails });
 }
 
@@ -72,7 +74,59 @@ async function deletePokemonById(req, res) {
   }
 }
 
+function displaySignUpPage(req, res) {
+  res.render("SignUpPage.ejs");
+}
+
+async function signUpUser(req, res) {
+  const formData = req.body;
+  try {
+    bcrypt.hash(formData.password, 10, function (err, hash) {
+      let newUser = new User({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        userName: formData.userName,
+        email: formData.email,
+        password: hash,
+      });
+      console.log("User creation in progress...");
+      newUser.save().then(() => console.log("User saved!"));
+      res.render("LoginPage.ejs");
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send(err);
+  }
+}
+
+async function loginUser(req, res) {
+  const formData = req.body;
+  try {
+    let user = await User.findOne({ userName: formData.userName });
+
+    bcrypt.compare(formData.password, user.password, function (err, result) {
+      if (result == true) {
+        // They are successfully logged in
+        res.locals.user = user;
+        req.session.user = user;
+        res.redirect("/");
+      } else {
+        // They are not logged in
+        res.send(err);
+      }
+    });
+  } catch (err) {}
+}
+
+function displayLoginPage(req, res) {
+  res.render("LoginPage.ejs");
+}
+
 module.exports = {
+  displayLoginPage,
+  loginUser,
+  signUpUser,
+  displaySignUpPage,
   deletePokemonById,
   getMyCollection,
   greetPokemon,
